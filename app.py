@@ -19,7 +19,7 @@ def result():
     pass"""
     #return jsonify(repartition(optimiser_depense(int(budget), services)))
 
-@app.route('/api/v1')
+@app.route('/api/v1', methods=['GET'])
 def my_route():
   budget = request.args.get('budget', default = 1200000, type = int)
   services = request.args.get('services', default = ["Traiteur", "Photo"], type = str)
