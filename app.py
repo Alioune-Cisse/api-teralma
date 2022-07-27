@@ -21,8 +21,8 @@ def result():
 
 @app.route('/api/v1', methods=['GET'])
 def my_route():
-  budget = request.args.get('budget', default = 1200000, type = int)
-  services = request.args.get('services', default = ["Traiteur", "Photo"], type = str)
+  budget = request.args["budget"]#.get('budget', default = 1200000, type = int)
+  services = request.args["services"]#.get('services', default = ["Traiteur", "Photo"], type = str)
   services = ast.literal_eval(services)
   invites = request.args.get('invites', default=100, type=int)
   print(f'services = {services}\nTypes = {type(services)}')
