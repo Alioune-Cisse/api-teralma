@@ -83,9 +83,12 @@ def repartition(depenses, df=data_alain):
     try:
       a = list(df[df['Sous catégories dépenses']==i]['Catégories dépenses'])[0]
       gestion_totale[a] = np.append(gestion_totale[a], {i:j})
-
     except:
-      pass
+      if (i == "Autres"):
+        a = "Plus"
+        gestion_totale[a] = np.append(gestion_totale[a], {i: j})
+      else:
+        pass
   #val = {k:v for k,v in gestion_totale.items() if v != list()}
 
   for k, v in gestion_totale.items():
