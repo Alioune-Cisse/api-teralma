@@ -32,7 +32,10 @@ def my_route():
   print(f'services = {services}\nTypes = {type(services)}')
   repartitions = repartition(optimiser_depense(int(budget),  services))
   print(repartitions)
-  return jsonify(repartitions)
+  #return jsonify(repartitions)
+  response = jsonify(repartitions)
+  response.headers.add('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
+  return response
 
 
 if __name__ == "__main__":
