@@ -28,6 +28,7 @@ def optimiser_depense(budget, services, df=data_alain):
   #return A, b, c
   print(f'b = {b}\n A = {A}\nc = {c}\n{type(b)}, {type(A)}, {type(c)}')
   res = linprog(c, A_ub=np.array(A), b_ub=np.array(b),bounds=(0, None))
+  res.x = [round(elt) for elt in res.x]
 
   #print('Optimal value:', -1*res.fun, '\nX:', res.x)
   dicto = dict(zip(services, res.x))
