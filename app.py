@@ -2,11 +2,14 @@ from flask import Flask, render_template, request, jsonify
 from basics import optimiser_depense, getdata, repartition
 import json
 import ast
+from flask_cors import CORS
 
 donnees = getdata()
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 #repartition(optimiser_depense(int(budget), services))
 
