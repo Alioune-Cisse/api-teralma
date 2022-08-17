@@ -10,6 +10,7 @@ app = Flask(__name__)
 app.config["DEBUG"] = True
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
+app.config['JSON_AS_ASCII'] = False
 
 #repartition(optimiser_depense(int(budget), services))
 
